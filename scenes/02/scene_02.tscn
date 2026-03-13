@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmfgtnsp7dwog"]
+[gd_scene format=3 uid="uid://dmfgtnsp7dwog"]
 
 [ext_resource type="Script" uid="uid://dkogmjfayb3x" path="res://scenes/02/scene_02.gd" id="1_pv5ks"]
 [ext_resource type="PackedScene" uid="uid://6mxtxfu0f2w2" path="res://scenes/02/drop.tscn" id="2_1800v"]
@@ -8,33 +8,33 @@
 [ext_resource type="Script" uid="uid://dlhfa2m5sjino" path="res://scenes/02/shakycam.gd" id="6_1800v"]
 [ext_resource type="Texture2D" uid="uid://by4lcbpywvt73" path="res://scenes/02/broken.png" id="6_nect7"]
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Node2D" unique_id=1191453177]
 script = ExtResource("1_pv5ks")
 drop_scene = ExtResource("2_1800v")
 
-[node name="Cley" type="Sprite2D" parent="."]
+[node name="Cley" type="Sprite2D" parent="." unique_id=770294524]
 position = Vector2(968.3323, 332)
 scale = Vector2(1.7089933, 1.7089933)
 texture = ExtResource("2_cy4am")
 
-[node name="Drops" type="Node2D" parent="."]
+[node name="Drops" type="Node2D" parent="." unique_id=951232862]
 
-[node name="Lussie" parent="." instance=ExtResource("3_1800v")]
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("3_1800v")]
 position = Vector2(933.9999, 502)
 scale = Vector2(0.8171283, 0.8171283)
 
-[node name="Whisky" type="Sprite2D" parent="Lussie/ArmR/Marker2D" index="0"]
+[node name="Whisky" type="Sprite2D" parent="Lussie/ArmR/Marker2D" parent_id_path=PackedInt32Array(454238832, 1446937583) index="0" unique_id=1614462773]
 position = Vector2(-5.480835, -38.414673)
 scale = Vector2(0.37726563, 0.37726563)
 texture = ExtResource("4_nect7")
 
-[node name="Whisky2" type="Sprite2D" parent="."]
+[node name="Whisky2" type="Sprite2D" parent="." unique_id=146065048]
 visible = false
 position = Vector2(1432.0001, 745.00006)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("6_nect7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1609061743]
 position = Vector2(960, 540)
 script = ExtResource("6_1800v")
 

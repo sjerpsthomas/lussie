@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6mxtxfu0f2w2"]
+[gd_scene format=3 uid="uid://6mxtxfu0f2w2"]
 
 [ext_resource type="Texture2D" uid="uid://77lpjmi87wv6" path="res://scenes/02/drop.png" id="1_8ibft"]
 [ext_resource type="Script" uid="uid://d16i8m48wm85j" path="res://scenes/02/drop.gd" id="2_7lvfg"]
 
-[node name="Drop" type="Sprite2D"]
+[node name="Drop" type="Sprite2D" unique_id=2095087367]
 modulate = Color(1, 1, 1, 0.77254903)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_8ibft")
