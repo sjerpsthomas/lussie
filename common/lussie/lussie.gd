@@ -36,7 +36,6 @@ func toggle_arm_l_down() -> void:
 
 # Toggles the rotation of the right arm.
 func toggle_arm_r_up() -> void:
-	print("up")
 	arm_r.turn(-ARM_ANGLE)
 func toggle_arm_r_down() -> void:
 	arm_r.turn(ARM_ANGLE)

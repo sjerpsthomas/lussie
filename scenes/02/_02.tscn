@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://6mxtxfu0f2w2" path="res://scenes/02/drop.tscn" id="2_b0l12"]
 [ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="3_0v85k"]
 [ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="4_0m22j"]
+[ext_resource type="PackedScene" uid="uid://cte72p46vptso" path="res://common/audio/audio_manager.tscn" id="5_0m22j"]
 [ext_resource type="Texture2D" uid="uid://dgrhg847osqyc" path="res://scenes/02/cley.png" id="5_3b1cx"]
+[ext_resource type="AudioStream" uid="uid://d2u46syqie3jy" path="res://scenes/02/swoosh.wav" id="6_3b1cx"]
 [ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="6_jjkr8"]
+[ext_resource type="AudioStream" uid="uid://1cbgbh61kltu" path="res://scenes/02/break.wav" id="7_jjkr8"]
 [ext_resource type="Texture2D" uid="uid://li2ygtnfudic" path="res://scenes/02/whisky.png" id="7_qwrjx"]
 [ext_resource type="Texture2D" uid="uid://by4lcbpywvt73" path="res://scenes/02/broken.png" id="8_8tyjn"]
 
@@ -42,6 +45,14 @@ drop_scene = ExtResource("2_b0l12")
 [node name="Down" parent="InputManager" unique_id=289683147 instance=ExtResource("4_0m22j")]
 
 [node name="Space" parent="InputManager" unique_id=1513108490 instance=ExtResource("4_0m22j")]
+
+[node name="AudioManager" parent="." unique_id=684330391 instance=ExtResource("5_0m22j")]
+
+[node name="Swoosh" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=2016367379]
+stream = ExtResource("6_3b1cx")
+
+[node name="Break" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=825872823]
+stream = ExtResource("7_jjkr8")
 
 [node name="Cley" type="Sprite2D" parent="." unique_id=770294524]
 position = Vector2(968.3323, 332)

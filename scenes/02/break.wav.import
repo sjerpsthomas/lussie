@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d2u46syqie3jy"
-path="res://.godot/imported/swoosh.wav-cfa9a22edcd37b864ccf306bc5784df7.sample"
+uid="uid://1cbgbh61kltu"
+path="res://.godot/imported/break.wav-6e0868f7034fe623fd0660b73c7624d9.sample"
 
 [deps]
 
-source_file="res://common/audio/swoosh.wav"
-dest_files=["res://.godot/imported/swoosh.wav-cfa9a22edcd37b864ccf306bc5784df7.sample"]
+source_file="res://scenes/02/break.wav"
+dest_files=["res://.godot/imported/break.wav-6e0868f7034fe623fd0660b73c7624d9.sample"]
 
 [params]
 

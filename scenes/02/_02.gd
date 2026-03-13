@@ -8,10 +8,9 @@ extends Node2D
 func _on_right_pressed() -> void: _on_right_toggled.call_deferred(true)
 func _on_right_released() -> void: _on_right_toggled.call_deferred(false)
 func _on_right_toggled(up: bool) -> void:
-	print("up: " + str(up))
 	var count := 15 if up else 3
 	
-	AudioManager.play("swoosh")
+	AudioManager.current.play("Swoosh")
 	
 	for i in count:
 		var new_drop: Sprite2D = drop_scene.instantiate()
@@ -27,6 +26,6 @@ func _on_right_toggled(up: bool) -> void:
 
 # -
 func _on_space_pressed() -> void:
-	AudioManager.play("break")
+	AudioManager.current.play("Break")
 	$Lussie/ArmR/Marker2D/Whisky.visible = false
 	$Whisky2.visible = true

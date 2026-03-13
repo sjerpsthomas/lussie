@@ -1,22 +1,15 @@
-extends Node2D
+class_name AudioManager
+extends Node
 
-var volumes = {
-	"swoosh": 0,
-	"break": 0,
-}
+static var current: AudioManager:
+	get(): return (Engine.get_main_loop() as SceneTree).current_scene.get_node("AudioManager")
 
 
-# Plays the specified sound.
+# Plays the specified sound
 func play(sound_name: String) -> void:
-	var sound_path := sound_name
-	if not sound_path.is_absolute_path():
-		sound_path = "res://common/audio/" + sound_path + ".wav"
+	# Get the child with the corresponding name, check if it's there
+	var child := get_node_or_null(sound_name) as AudioStreamPlayer2D
+	assert(child != null, "Unknown sound " + sound_name + "!")
 	
-	var volume: float = volumes.get(sound_name, 0.0)
-	
-	var player := AudioStreamPlayer2D.new()
-	player.stream = load(sound_path)
-	player.volume_db = volume
-	
-	add_child(player)
-	player.play()
+	# Play its sound
+	child.play()

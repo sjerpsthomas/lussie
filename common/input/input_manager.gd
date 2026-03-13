@@ -1,6 +1,11 @@
 class_name InputManager
 extends Node
 
+
+static var current: InputManager:
+	get(): return (Engine.get_main_loop() as SceneTree).current_scene.get_node("InputManager")
+
+
 # -
 func _unhandled_input(event: InputEvent) -> void:
 	# Check if the event is a key event, and not an echo
