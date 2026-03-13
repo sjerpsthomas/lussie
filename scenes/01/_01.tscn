@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cle14qk1u7b5f"]
+
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="3_uuik7"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="4_glygx"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="6_hyaoy"]
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("3_uuik7")]
+
+[node name="Left" parent="InputManager" unique_id=1490840753 instance=ExtResource("4_glygx")]
+
+[node name="Right" parent="InputManager" unique_id=702036092 instance=ExtResource("4_glygx")]
+
+[node name="Up" parent="InputManager" unique_id=102250784 instance=ExtResource("4_glygx")]
+
+[node name="Down" parent="InputManager" unique_id=289683147 instance=ExtResource("4_glygx")]
+
+[node name="Space" parent="InputManager" unique_id=1513108490 instance=ExtResource("4_glygx")]
+
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("6_hyaoy")]
+position = Vector2(917, 619)
+scale = Vector2(0.8171283, 0.8171283)
+
+[connection signal="pressed" from="InputManager/Left" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/Left" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="InputManager/Right" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/Right" to="." method="_on_right_released"]
+[connection signal="released" from="InputManager/Right" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/Up" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/Up" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/Down" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/Down" to="Lussie" method="toggle_legs_back"]
+[connection signal="pressed" from="InputManager/Space" to="." method="_on_space_pressed"]

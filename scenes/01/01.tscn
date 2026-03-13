@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cm8rwapl61xm"]
-
-[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="1_yaybn"]
-
-[node name="Main" type="Node2D" unique_id=1143217978]
-
-[node name="Lussie" parent="." unique_id=1284597729 instance=ExtResource("1_yaybn")]
-position = Vector2(917, 619)

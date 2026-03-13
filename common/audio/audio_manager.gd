@@ -10,7 +10,7 @@ var volumes = {
 func play(sound_name: String) -> void:
 	var sound_path := sound_name
 	if not sound_path.is_absolute_path():
-		sound_path = "res://audio/" + sound_path + ".wav"
+		sound_path = "res://common/audio/" + sound_path + ".wav"
 	
 	var volume: float = volumes.get(sound_name, 0.0)
 	

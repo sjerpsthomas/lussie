@@ -4,9 +4,11 @@ extends Node2D
 @export var drop_scene: PackedScene
 
 
-
-
-func _on_lussie_arm_r_toggled(up: bool) -> void:
+# -
+func _on_right_pressed() -> void: _on_right_toggled.call_deferred(true)
+func _on_right_released() -> void: _on_right_toggled.call_deferred(false)
+func _on_right_toggled(up: bool) -> void:
+	print("up: " + str(up))
 	var count := 15 if up else 3
 	
 	AudioManager.play("swoosh")
@@ -23,8 +25,8 @@ func _on_lussie_arm_r_toggled(up: bool) -> void:
 		else:
 			new_drop.global_position = $Lussie/ArmR/Marker2D/Whisky.global_position + Vector2(100, -60)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("secondary"):
-		AudioManager.play("break")
-		$Lussie/ArmR/Marker2D/Whisky.visible = false
-		$Whisky2.visible = true
+# -
+func _on_space_pressed() -> void:
+	AudioManager.play("break")
+	$Lussie/ArmR/Marker2D/Whisky.visible = false
+	$Whisky2.visible = true

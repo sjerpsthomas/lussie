@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dmfgtnsp7dwog"]
+
+[ext_resource type="Script" uid="uid://dkogmjfayb3x" path="res://scenes/02/_02.gd" id="1_2lbc2"]
+[ext_resource type="PackedScene" uid="uid://6mxtxfu0f2w2" path="res://scenes/02/drop.tscn" id="2_b0l12"]
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="3_0v85k"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="4_0m22j"]
+[ext_resource type="Texture2D" uid="uid://dgrhg847osqyc" path="res://scenes/02/cley.png" id="5_3b1cx"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="6_jjkr8"]
+[ext_resource type="Texture2D" uid="uid://li2ygtnfudic" path="res://scenes/02/whisky.png" id="7_qwrjx"]
+[ext_resource type="Texture2D" uid="uid://by4lcbpywvt73" path="res://scenes/02/broken.png" id="8_8tyjn"]
+
+[sub_resource type="GDScript" id="GDScript_2s8al"]
+script/source = "extends Camera2D
+
+
+@onready var start_pos := position
+@onready var next_pos := position
+@onready var interp_pos := position
+
+
+#func _process(delta: float) -> void:
+	#interp_pos = position.move_toward(next_pos, delta * 100)
+	#
+	#if interp_pos.is_equal_approx(next_pos):
+		#next_pos = start_pos + 40 * Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	#
+	#position = lerp(position, interp_pos, 1)
+"
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+script = ExtResource("1_2lbc2")
+drop_scene = ExtResource("2_b0l12")
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("3_0v85k")]
+
+[node name="Left" parent="InputManager" unique_id=1490840753 instance=ExtResource("4_0m22j")]
+
+[node name="Right" parent="InputManager" unique_id=702036092 instance=ExtResource("4_0m22j")]
+
+[node name="Up" parent="InputManager" unique_id=102250784 instance=ExtResource("4_0m22j")]
+
+[node name="Down" parent="InputManager" unique_id=289683147 instance=ExtResource("4_0m22j")]
+
+[node name="Space" parent="InputManager" unique_id=1513108490 instance=ExtResource("4_0m22j")]
+
+[node name="Cley" type="Sprite2D" parent="." unique_id=770294524]
+position = Vector2(968.3323, 332)
+scale = Vector2(1.7089933, 1.7089933)
+texture = ExtResource("5_3b1cx")
+
+[node name="Drops" type="Node2D" parent="." unique_id=951232862]
+
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("6_jjkr8")]
+position = Vector2(933.9999, 502)
+scale = Vector2(0.8171283, 0.8171283)
+
+[node name="Whisky" type="Sprite2D" parent="Lussie/ArmR/Marker2D" parent_id_path=PackedInt32Array(454238832, 1446937583) index="0" unique_id=1614462773]
+position = Vector2(-5.480835, -38.414673)
+scale = Vector2(0.37726563, 0.37726563)
+texture = ExtResource("7_qwrjx")
+
+[node name="Whisky2" type="Sprite2D" parent="." unique_id=146065048]
+visible = false
+position = Vector2(1432.0001, 745.00006)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("8_8tyjn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1609061743]
+position = Vector2(960, 540)
+script = SubResource("GDScript_2s8al")
+
+[connection signal="pressed" from="InputManager/Left" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/Left" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="InputManager/Right" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/Right" to="." method="_on_right_released"]
+[connection signal="released" from="InputManager/Right" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/Up" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/Up" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/Down" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/Down" to="Lussie" method="toggle_legs_back"]
+[connection signal="pressed" from="InputManager/Space" to="." method="_on_space_pressed"]
+
+[editable path="Lussie"]

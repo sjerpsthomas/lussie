@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dtk8tpfsarv0t"]
+
+[ext_resource type="Script" uid="uid://dqnbgk5ftjlji" path="res://common/input/input_manager.gd" id="1_xtaq8"]
+
+[node name="InputManager" type="Node" unique_id=411237045]
+script = ExtResource("1_xtaq8")
+metadata/_edit_lock_ = true
