@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://82sjp0hhciga"]
+
+[ext_resource type="Texture2D" uid="uid://cyvqo76rqdtqj" path="res://scenes/03/berckt.png" id="3_37s8h"]
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="3_oh650"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="4_piikv"]
+[ext_resource type="PackedScene" uid="uid://bm82dykdv1of8" path="res://common/vriendin/vriendin.tscn" id="6_tbbnp"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="9_jo6wv"]
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("3_oh650")]
+
+[node name="Left" parent="InputManager" unique_id=1490840753 instance=ExtResource("4_piikv")]
+
+[node name="Right" parent="InputManager" unique_id=702036092 instance=ExtResource("4_piikv")]
+
+[node name="Up" parent="InputManager" unique_id=102250784 instance=ExtResource("4_piikv")]
+
+[node name="Down" parent="InputManager" unique_id=289683147 instance=ExtResource("4_piikv")]
+
+[node name="A" parent="InputManager" unique_id=1952746057 instance=ExtResource("4_piikv")]
+
+[node name="D" parent="InputManager" unique_id=1360601556 instance=ExtResource("4_piikv")]
+
+[node name="W" parent="InputManager" unique_id=1516702991 instance=ExtResource("4_piikv")]
+
+[node name="S" parent="InputManager" unique_id=1573789080 instance=ExtResource("4_piikv")]
+
+[node name="Berckt" type="Sprite2D" parent="." unique_id=197592723]
+position = Vector2(1002, 188)
+scale = Vector2(5.565, 4.59)
+texture = ExtResource("3_37s8h")
+
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("9_jo6wv")]
+position = Vector2(491.00006, 608)
+scale = Vector2(0.8171283, 0.8171283)
+
+[node name="Vriendin" parent="." unique_id=585558683 instance=ExtResource("6_tbbnp")]
+position = Vector2(1323, 606.00006)
+scale = Vector2(0.817, 0.817)
+
+[connection signal="pressed" from="InputManager/Left" to="Vriendin" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/Left" to="Vriendin" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/Right" to="Vriendin" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/Right" to="Vriendin" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/Up" to="Vriendin" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/Up" to="Vriendin" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/Down" to="Vriendin" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/Down" to="Vriendin" method="toggle_legs_back"]
+[connection signal="pressed" from="InputManager/A" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/A" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/D" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/D" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/W" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/W" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/S" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/S" to="Lussie" method="toggle_legs_back"]

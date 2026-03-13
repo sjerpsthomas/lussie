@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bm82dykdv1of8"]
+
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="1_eaqvq"]
+[ext_resource type="Texture2D" uid="uid://bjptq6y5nrj7u" path="res://common/vriendin/assets/body.png" id="2_jjjva"]
+[ext_resource type="Texture2D" uid="uid://066dqbh7ao5u" path="res://common/vriendin/assets/legs.png" id="2_xajqx"]
+[ext_resource type="Texture2D" uid="uid://ekiv4y1eddwa" path="res://common/vriendin/assets/eyes_wide.png" id="4_0hw47"]
+[ext_resource type="Texture2D" uid="uid://bie8gmd4tmumg" path="res://common/vriendin/assets/eyes_narrow.png" id="5_buk81"]
+
+[node name="Vriendin" unique_id=585558683 instance=ExtResource("1_eaqvq")]
+
+[node name="ArmL" parent="." index="0" unique_id=515296369]
+position = Vector2(-264.549, -108.500015)
+
+[node name="ArmR" parent="." index="1" unique_id=1714392798]
+position = Vector2(262.45105, -12.500061)
+
+[node name="Legs" parent="." index="2" unique_id=276151733]
+position = Vector2(-24.54895, 58.5)
+texture = ExtResource("2_xajqx")
+
+[node name="Body" parent="." index="3" unique_id=1583854385]
+position = Vector2(3.4510498, -43.5)
+texture = ExtResource("2_jjjva")
+
+[node name="EyesNarrow" parent="." index="4" unique_id=1359845225]
+position = Vector2(21.45105, -124.5)
+texture = ExtResource("5_buk81")
+
+[node name="EyesWide" parent="." index="5" unique_id=1027129344]
+position = Vector2(21.45105, -124.5)
+texture = ExtResource("4_0hw47")

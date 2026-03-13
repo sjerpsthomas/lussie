@@ -12,24 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://li2ygtnfudic" path="res://scenes/02/whisky.png" id="7_qwrjx"]
 [ext_resource type="Texture2D" uid="uid://by4lcbpywvt73" path="res://scenes/02/broken.png" id="8_8tyjn"]
 
-[sub_resource type="GDScript" id="GDScript_2s8al"]
-script/source = "extends Camera2D
-
-
-@onready var start_pos := position
-@onready var next_pos := position
-@onready var interp_pos := position
-
-
-#func _process(delta: float) -> void:
-	#interp_pos = position.move_toward(next_pos, delta * 100)
-	#
-	#if interp_pos.is_equal_approx(next_pos):
-		#next_pos = start_pos + 40 * Vector2(randf_range(-1, 1), randf_range(-1, 1))
-	#
-	#position = lerp(position, interp_pos, 1)
-"
-
 [node name="Scene" type="Node2D" unique_id=1191453177]
 script = ExtResource("1_2lbc2")
 drop_scene = ExtResource("2_b0l12")
@@ -75,10 +57,6 @@ visible = false
 position = Vector2(1432.0001, 745.00006)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("8_8tyjn")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1609061743]
-position = Vector2(960, 540)
-script = SubResource("GDScript_2s8al")
 
 [connection signal="pressed" from="InputManager/Left" to="Lussie" method="toggle_arm_l_up"]
 [connection signal="released" from="InputManager/Left" to="Lussie" method="toggle_arm_l_down"]
