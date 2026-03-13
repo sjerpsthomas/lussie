@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkhscnyjhtg0p"]
+
+[ext_resource type="Script" uid="uid://btkhj21r3a1j3" path="res://common/lussie/lussie.gd" id="1_bimnu"]
+[ext_resource type="Texture2D" uid="uid://bbhpc6dqr6sio" path="res://common/lussie/assets/arm.png" id="2_bimnu"]
+[ext_resource type="Texture2D" uid="uid://c53gfa1l4mmml" path="res://common/lussie/assets/legs.png" id="3_0x0id"]
+[ext_resource type="Script" uid="uid://bqifj47kvpdot" path="res://common/lussie/element.gd" id="4_0x0id"]
+[ext_resource type="Texture2D" uid="uid://d2x74hj4vkfkv" path="res://common/lussie/assets/body.png" id="4_6fb8v"]
+[ext_resource type="Texture2D" uid="uid://dex13rrwngnpm" path="res://common/lussie/assets/eyes_narrow.png" id="6_pgayb"]
+[ext_resource type="Texture2D" uid="uid://c0pu04tqmu0k3" path="res://common/lussie/assets/eyes_wide.png" id="7_sq5hw"]
+
+[node name="Lussie" type="Node2D" node_paths=PackedStringArray("eyes_narrow", "eyes_wide", "arm_l", "arm_r", "legs")]
+script = ExtResource("1_bimnu")
+eyes_narrow = NodePath("EyesNarrow")
+eyes_wide = NodePath("EyesWide")
+arm_l = NodePath("ArmL")
+arm_r = NodePath("ArmR")
+legs = NodePath("Legs")
+metadata/_edit_group_ = true
+
+[node name="ArmL" type="Sprite2D" parent="."]
+position = Vector2(-248.54898, -13.5)
+rotation = -1.2391838
+texture = ExtResource("2_bimnu")
+offset = Vector2(-160, 0)
+script = ExtResource("4_0x0id")
+
+[node name="Marker2D" type="Marker2D" parent="ArmL"]
+position = Vector2(-264.0531, 1.0229187)
+
+[node name="ArmR" type="Sprite2D" parent="."]
+position = Vector2(285.4511, -81.500046)
+rotation = -1.9285889
+scale = Vector2(1, -1)
+texture = ExtResource("2_bimnu")
+offset = Vector2(-160, 0)
+script = ExtResource("4_0x0id")
+
+[node name="Marker2D" type="Marker2D" parent="ArmR"]
+position = Vector2(-264.0531, 1.0229187)
+
+[node name="Legs" type="Sprite2D" parent="."]
+position = Vector2(23.45105, 98.5)
+texture = ExtResource("3_0x0id")
+script = ExtResource("4_0x0id")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(3.4510498, -59.5)
+texture = ExtResource("4_6fb8v")
+script = ExtResource("4_0x0id")
+
+[node name="EyesNarrow" type="Sprite2D" parent="."]
+position = Vector2(28.45105, -127.5)
+texture = ExtResource("6_pgayb")
+script = ExtResource("4_0x0id")
+
+[node name="EyesWide" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(15, -131)
+texture = ExtResource("7_sq5hw")
+script = ExtResource("4_0x0id")
