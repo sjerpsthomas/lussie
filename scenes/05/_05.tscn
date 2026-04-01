@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bc7cknvan1e1m"]
+
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="1_xkx8e"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="2_moyt0"]
+[ext_resource type="Script" uid="uid://c7f4146g54ijj" path="res://scenes/05/lucius.gd" id="4_5w7pg"]
+[ext_resource type="Texture2D" uid="uid://dlljvhikno7pp" path="res://scenes/05/pants.png" id="4_7e06c"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="4_aupof"]
+[ext_resource type="Texture2D" uid="uid://nhpxfcobq68w" path="res://scenes/05/folie.png" id="5_mvdub"]
+[ext_resource type="Texture2D" uid="uid://qpalvxk8ruft" path="res://scenes/05/moustache.png" id="7_1nlap"]
+[ext_resource type="Script" uid="uid://bqifj47kvpdot" path="res://common/lussie/element.gd" id="8_allhn"]
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("1_xkx8e")]
+
+[node name="A" parent="InputManager" unique_id=1952746057 instance=ExtResource("2_moyt0")]
+
+[node name="D" parent="InputManager" unique_id=1360601556 instance=ExtResource("2_moyt0")]
+
+[node name="W" parent="InputManager" unique_id=1516702991 instance=ExtResource("2_moyt0")]
+
+[node name="S" parent="InputManager" unique_id=1573789080 instance=ExtResource("2_moyt0")]
+
+[node name="Q" parent="InputManager" unique_id=1490840753 instance=ExtResource("2_moyt0")]
+
+[node name="E" parent="InputManager" unique_id=1989034088 instance=ExtResource("2_moyt0")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1069028573]
+offset_left = -585.0
+offset_top = -422.0
+offset_right = 2793.0
+offset_bottom = 1980.0
+color = Color(0, 1, 0, 1)
+
+[node name="Lussie" parent="." unique_id=454238832 node_paths=PackedStringArray("moustache") instance=ExtResource("4_aupof")]
+position = Vector2(635, 361)
+scale = Vector2(0.8171283, 0.8171283)
+script = ExtResource("4_5w7pg")
+moustache = NodePath("Moustache")
+
+[node name="Legs" parent="Lussie" index="2" unique_id=276151733]
+position = Vector2(33.042618, 127.27501)
+scale = Vector2(1.6898848, 1.609879)
+texture = ExtResource("4_7e06c")
+
+[node name="Body" parent="Lussie" index="3" unique_id=1583854385]
+rotation = -0.116937056
+skew = 0.14486232
+texture = ExtResource("5_mvdub")
+
+[node name="Moustache" type="Sprite2D" parent="Lussie" unique_id=206983975]
+position = Vector2(53.847115, -18.35697)
+scale = Vector2(3, 3)
+texture = ExtResource("7_1nlap")
+script = ExtResource("8_allhn")
+
+[connection signal="pressed" from="InputManager/A" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/A" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/D" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/D" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/W" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/W" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/S" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/S" to="Lussie" method="toggle_legs_back"]
+[connection signal="pressed" from="InputManager/Q" to="Lussie" method="turn_moustache_left"]
+[connection signal="released" from="InputManager/Q" to="Lussie" method="turn_moustache_back"]
+[connection signal="pressed" from="InputManager/E" to="Lussie" method="turn_moustache_right"]
+[connection signal="released" from="InputManager/E" to="Lussie" method="turn_moustache_back"]
+
+[editable path="Lussie"]

@@ -15,3 +15,7 @@ func move() -> void:
 func turn(amount: float) -> void:
 	rotation_degrees += amount
 	start_rotation += amount
+
+func turn_absolute(amount: float) -> void:
+	start_rotation = amount
+	rotation_degrees = amount + rand(0.5)

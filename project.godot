@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lussie"
-run/main_scene="uid://82sjp0hhciga"
+run/main_scene="uid://bc7cknvan1e1m"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,9 @@ RestartManager="*uid://br7j3r0bebmb4"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/aspect="expand"
 
 [input]
 
