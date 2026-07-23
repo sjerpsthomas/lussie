@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://jeavw4cyx03v"]
+
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="1_24m7d"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="2_lv3qu"]
+[ext_resource type="Texture2D" uid="uid://c7keniyutlj65" path="res://scenes/04/tokens.png" id="4_lv3qu"]
+[ext_resource type="Texture2D" uid="uid://c5nilxit1d62p" path="res://scenes/04/vignette.png" id="4_qkfdf"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="4_syauf"]
+[ext_resource type="Script" uid="uid://bmvdkmko0f2jf" path="res://scenes/04/tokens.gd" id="5_2nq6f"]
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+metadata/_edit_horizontal_guides_ = [-651.0]
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("1_24m7d")]
+
+[node name="Left" parent="InputManager" unique_id=1490840753 instance=ExtResource("2_lv3qu")]
+
+[node name="Right" parent="InputManager" unique_id=702036092 instance=ExtResource("2_lv3qu")]
+
+[node name="Up" parent="InputManager" unique_id=289683147 instance=ExtResource("2_lv3qu")]
+
+[node name="Down" parent="InputManager" unique_id=102250784 instance=ExtResource("2_lv3qu")]
+
+[node name="W" parent="InputManager" unique_id=903711350 instance=ExtResource("2_lv3qu")]
+
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("4_syauf")]
+position = Vector2(907.00006, 690)
+scale = Vector2(1.379, 1.379)
+
+[node name="ArmL" parent="Lussie" index="0" unique_id=515296369]
+visible = false
+
+[node name="ArmR" parent="Lussie" index="1" unique_id=1714392798]
+visible = false
+
+[node name="Legs" parent="Lussie" index="2" unique_id=276151733]
+position = Vector2(14.503225, 134.88036)
+
+[node name="EyesNarrow" parent="Lussie" index="4" unique_id=1359845225]
+position = Vector2(-55.837616, -136.33067)
+
+[node name="Tokens" type="Sprite2D" parent="." unique_id=1240253934]
+position = Vector2(1270, 527)
+rotation = 0.34732053
+texture = ExtResource("4_lv3qu")
+script = ExtResource("5_2nq6f")
+
+[node name="Vignette" type="Sprite2D" parent="." unique_id=446469433]
+position = Vector2(954.5, 543)
+scale = Vector2(1.4992187, 1.5027777)
+texture = ExtResource("4_qkfdf")
+
+[connection signal="pressed" from="InputManager/Left" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/Left" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/Right" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/Right" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/Up" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/Up" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/Down" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/Down" to="Lussie" method="toggle_legs_back"]
+
+[editable path="Lussie"]

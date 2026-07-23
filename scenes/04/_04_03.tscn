@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://p0124vh82urf"]
+
+[ext_resource type="PackedScene" uid="uid://dtk8tpfsarv0t" path="res://common/input/input_manager.tscn" id="1_y2wiq"]
+[ext_resource type="PackedScene" uid="uid://caxxffe1aj537" path="res://common/input/input_instance.tscn" id="2_y0ivk"]
+[ext_resource type="Texture2D" uid="uid://dwd0xr04j6iyf" path="res://scenes/04/avaroa-national-reserve.jpg" id="3_m6fsf"]
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="4_sui0a"]
+[ext_resource type="PackedScene" uid="uid://ym7qefrt2a27" path="res://common/rik/rik.tscn" id="5_420y5"]
+[ext_resource type="Texture2D" uid="uid://c7keniyutlj65" path="res://scenes/04/tokens.png" id="6_m6fsf"]
+[ext_resource type="Script" uid="uid://bmvdkmko0f2jf" path="res://scenes/04/tokens.gd" id="7_sui0a"]
+
+[node name="Scene" type="Node2D" unique_id=1191453177]
+metadata/_edit_horizontal_guides_ = [-651.0]
+
+[node name="InputManager" parent="." unique_id=411237045 instance=ExtResource("1_y2wiq")]
+
+[node name="Left" parent="InputManager" unique_id=1490840753 instance=ExtResource("2_y0ivk")]
+
+[node name="Right" parent="InputManager" unique_id=702036092 instance=ExtResource("2_y0ivk")]
+
+[node name="Up" parent="InputManager" unique_id=289683147 instance=ExtResource("2_y0ivk")]
+
+[node name="Down" parent="InputManager" unique_id=102250784 instance=ExtResource("2_y0ivk")]
+
+[node name="W" parent="InputManager" unique_id=903711350 instance=ExtResource("2_y0ivk")]
+
+[node name="Space" parent="InputManager" unique_id=558627536 instance=ExtResource("2_y0ivk")]
+
+[node name="AvaroaNationalReserve" type="Sprite2D" parent="." unique_id=286127811]
+position = Vector2(1017.0001, 64.00002)
+scale = Vector2(4.4090004, 4.4090004)
+texture = ExtResource("3_m6fsf")
+
+[node name="Lussie" parent="." unique_id=454238832 instance=ExtResource("4_sui0a")]
+position = Vector2(1415.0001, 667.00006)
+scale = Vector2(0.54858434, 0.54858434)
+
+[node name="Rik" parent="." unique_id=585558683 instance=ExtResource("5_420y5")]
+position = Vector2(381, 659)
+scale = Vector2(0.6, 0.6)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=270290517]
+position = Vector2(450, 592)
+zoom = Vector2(1.85, 1.85)
+
+[node name="Tokens" type="Sprite2D" parent="." unique_id=588430876 node_paths=PackedStringArray("arms_folded", "arm_l", "arm_r")]
+visible = false
+position = Vector2(1573, 306)
+rotation = 0.34732053
+scale = Vector2(0.418, 0.418)
+texture = ExtResource("6_m6fsf")
+script = ExtResource("7_sui0a")
+arms_folded = NodePath("../Rik/ArmsFolded")
+arm_l = NodePath("../Lussie/ArmL")
+arm_r = NodePath("../Lussie/ArmR")
+
+[connection signal="pressed" from="InputManager/Left" to="Lussie" method="toggle_arm_l_up"]
+[connection signal="released" from="InputManager/Left" to="Lussie" method="toggle_arm_l_down"]
+[connection signal="pressed" from="InputManager/Right" to="Lussie" method="toggle_arm_r_up"]
+[connection signal="released" from="InputManager/Right" to="Lussie" method="toggle_arm_r_down"]
+[connection signal="pressed" from="InputManager/Up" to="Lussie" method="toggle_eyes_wide"]
+[connection signal="released" from="InputManager/Up" to="Lussie" method="toggle_eyes_back"]
+[connection signal="pressed" from="InputManager/Down" to="Lussie" method="toggle_legs_mirror"]
+[connection signal="released" from="InputManager/Down" to="Lussie" method="toggle_legs_back"]
+[connection signal="pressed" from="InputManager/W" to="Rik" method="toggle_arms_back"]
+[connection signal="released" from="InputManager/W" to="Rik" method="toggle_arms_folded"]
+[connection signal="pressed" from="InputManager/Space" to="Tokens" method="flip"]
+
+[editable path="Lussie"]
+[editable path="Rik"]

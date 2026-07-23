@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://btkhj21r3a1j3" path="res://common/lussie/lussie.gd" id="1_bimnu"]
 [ext_resource type="Texture2D" uid="uid://bbhpc6dqr6sio" path="res://common/lussie/assets/arm.png" id="2_bimnu"]
 [ext_resource type="Texture2D" uid="uid://c53gfa1l4mmml" path="res://common/lussie/assets/legs.png" id="3_0x0id"]
-[ext_resource type="Script" uid="uid://bqifj47kvpdot" path="res://common/lussie/element.gd" id="4_0x0id"]
+[ext_resource type="Script" uid="uid://bqifj47kvpdot" path="res://common/lussie/body_part.gd" id="4_0x0id"]
 [ext_resource type="Texture2D" uid="uid://d2x74hj4vkfkv" path="res://common/lussie/assets/body.png" id="4_6fb8v"]
 [ext_resource type="Texture2D" uid="uid://dex13rrwngnpm" path="res://common/lussie/assets/eyes_narrow.png" id="6_pgayb"]
 [ext_resource type="Texture2D" uid="uid://c0pu04tqmu0k3" path="res://common/lussie/assets/eyes_wide.png" id="7_sq5hw"]

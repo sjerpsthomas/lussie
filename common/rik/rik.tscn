@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ym7qefrt2a27"]
+
+[ext_resource type="PackedScene" uid="uid://bkhscnyjhtg0p" path="res://common/lussie/lussie.tscn" id="1_1miq2"]
+[ext_resource type="Script" uid="uid://3tgwjb5t0dui" path="res://common/rik/rik.gd" id="2_axbo0"]
+[ext_resource type="Texture2D" uid="uid://dwvwci7v0h478" path="res://common/rik/assets/body.png" id="2_yjpo4"]
+[ext_resource type="Texture2D" uid="uid://br0us3wh50rva" path="res://common/rik/assets/eyes.png" id="3_axbo0"]
+[ext_resource type="Texture2D" uid="uid://hshqroi81q7v" path="res://common/rik/assets/arms_folded.png" id="4_1nu8u"]
+[ext_resource type="Script" uid="uid://bqifj47kvpdot" path="res://common/lussie/body_part.gd" id="6_1nu8u"]
+
+[node name="Rik" unique_id=585558683 node_paths=PackedStringArray("arms_folded") instance=ExtResource("1_1miq2")]
+script = ExtResource("2_axbo0")
+arms_folded = NodePath("ArmsFolded")
+
+[node name="ArmL" parent="." index="0" unique_id=515296369]
+visible = false
+position = Vector2(-194, 26.000008)
+rotation = 0.493881
+
+[node name="ArmR" parent="." index="1" unique_id=1714392798]
+visible = false
+position = Vector2(208, 24.000008)
+rotation = -3.6815193
+
+[node name="Legs" parent="." index="2" unique_id=276151733]
+visible = false
+
+[node name="Body" parent="." index="3" unique_id=1583854385]
+position = Vector2(24.999992, -57.000023)
+scale = Vector2(0.56518936, 0.5651893)
+texture = ExtResource("2_yjpo4")
+
+[node name="EyesNarrow" parent="." index="4" unique_id=1359845225]
+position = Vector2(16, -282)
+texture = ExtResource("3_axbo0")
+
+[node name="ArmsFolded" type="Sprite2D" parent="." index="6" unique_id=518087047]
+position = Vector2(26, 38.000004)
+scale = Vector2(0.90278196, 0.68609023)
+texture = ExtResource("4_1nu8u")
+script = ExtResource("6_1nu8u")

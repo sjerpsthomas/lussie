@@ -1,3 +1,4 @@
+class_name Lussie
 extends Node2D
 
 @onready var elements: Array[BodyPart]
